@@ -1,26 +1,20 @@
-# printingqueue-semaphore
-Example of a printing queue accessed by concurrent threads, which are synchronized by using a semaphore
-
-# Synchronizing a printing queue #
+# Synchronizing a printing queue using a semaphore #
 
 ## About
-This project is about a simple example of printing queue accessed by concurrent threads, which are synchronized by using a [semaphore object](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/concurrent/Semaphore.html).
+This project is about a simple example of a printing queue shared by concurrent threads, which are synchronized by using a semaphore. The implementation uses an instance of the [`Sempahore`](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/concurrent/Semaphore.html) class available at the [`java.util.concurrent` package](https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/concurrent/package-summary.html) provided by the Java programming language.
+
+By implementing mutual exclusion supported by a semaphore, only one printing job (running as a thread) access the printing queue at a time. The semaphore blocks other jobs attempting to access the printing queue. After using the printing queue, the resource is released, and some job eventually suspended is notified for execution.
 
 ## Repository structure
-Each package in repository contains source code demonstrating a different method for Java thread programming. 
-Packages within [src/thread](src/thread) are organized as follows:
+Source code in this repository is organized as follows:
 
 ```
-+─java-threads-examples       ---> Project directory
-  ├─── doc                    ---> Directory with HTML pages resulted from generated Javadoc
-  └─── src                    ---> Directory with source code files
-       └─── thread
-            └─── join         ---> Demonstration of the 'join' method
-            └─── priority     ---> Demonstration of the assigment of priorities to threads
-            └─── runnable     ---> Demonstration of the creation of threads using the Runnable interface
-            └─── sleep        ---> Demonstration of the 'sleep' method
-            └─── start        ---> Demonstration of the creation of threads by extending the Thread class
-            └─── volatile     ---> Demonstration of the use of volatile variables with threads
++─printingqueue-semaphore       ---> Project directory
+  ├─── doc                      ---> Directory with HTML pages resulted from generated Javadoc
+  └─── src                      ---> Directory with source code files
+       └─── Job.java            ---> Implementation of a printing job as a thread
+       └─── Main.java           ---> Main class
+       └─── PrintingQueue.java  ---> Simulation of a shared printing queue controlled by a semaphore
 ```
 
 After cloning this repository with `git clone` to your local file system, you can import it to your preferred IDE.
