@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
  * 
  * @see java.util.concurrent.Semaphore
  * 
- * @author <a href="mailto:everton@dimap.ufrn.br">Everton Cavalcante</a>
+ * @author <a href="mailto:everton.cavalcante@ufrn.br">Everton Cavalcante</a>
  */
 public class PrintingQueue {
 	/** 
@@ -22,18 +22,7 @@ public class PrintingQueue {
 	}
 	
 	
-	/**
-     * Perform the printing job itself.<br>
-     * By implementing mutual exclusion supported by a semaphore, 
-     * only one job access the printing queue at a time through
-     * the call to the <code>acquire</code> method on the semaphore, 
-     * which automatically blocks other jobs attempting to access
-     * the printing queue. 
-     * After using the printing queue, the resource is released by
-     * calling the <code>release</code> method on the semaphore, 
-     * which automatically makes some job eventually suspended to
-     * be notified for execution.
-     */
+	/** Perform the printing job itself */
 	public void printJob() {
 		try {
 			semaphore.acquire();
@@ -42,7 +31,7 @@ public class PrintingQueue {
 			// simulate the printing job
 			int duration = (int) (Math.random() * 5) + 1;
 			System.out.print(Thread.currentThread().getName());
-			System.out.print(" printing by " + duration + "s\n");
+			System.out.print(" printing by " + duration + " second(s)\n");
 			Thread.sleep(duration * 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
