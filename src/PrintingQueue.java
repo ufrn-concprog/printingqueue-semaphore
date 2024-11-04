@@ -14,7 +14,7 @@ public class PrintingQueue {
 	 * Semaphore for suspending/notifying threads
 	 * @see java.util.concurrent.Semaphore
 	 */
-	private Semaphore semaphore;
+	private final Semaphore semaphore;
 	
 	/** Default constructor */
 	public PrintingQueue() {
@@ -32,7 +32,7 @@ public class PrintingQueue {
 			int duration = (int) (Math.random() * 5) + 1;
 			System.out.print(Thread.currentThread().getName());
 			System.out.print(" printing by " + duration + " second(s)\n");
-			Thread.sleep(duration * 1000);
+			Thread.sleep(duration * 1000L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {

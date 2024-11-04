@@ -16,7 +16,7 @@ public class Main {
 		// Instantiation of printing jobs as threads
 		Job[] jobs = new Job[NUM_JOBS];
 		for (int i = 0; i < NUM_JOBS; i++) {
-			jobs[i] = new Job("Thread " + (i+1), queue); 
+			jobs[i] = new Job("Job " + (i+1), queue);
 		}
 		
 		for (int i = 0; i < NUM_JOBS; i++) {

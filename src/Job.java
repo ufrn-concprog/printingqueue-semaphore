@@ -19,7 +19,7 @@ public class Job extends Thread {
 	/** Statements to be executed when the thread runs */
 	@Override
 	public void run() {
-		System.out.println("Printing job sent by " + Thread.currentThread().getName());
+		System.out.println("Printing job sent: " + Thread.currentThread().getName());
 		queue.printJob();		// Performs printing job
 	}
 }
