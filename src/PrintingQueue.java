@@ -21,7 +21,6 @@ public class PrintingQueue {
 		semaphore = new Semaphore(1, true);
 	}
 	
-	
 	/** Perform the printing job itself */
 	public void printJob() {
 		try {
@@ -31,7 +30,7 @@ public class PrintingQueue {
 			// simulate the printing job
 			int duration = (int) (Math.random() * 5) + 1;
 			System.out.print(Thread.currentThread().getName());
-			System.out.print(" printing by " + duration + " second(s)\n");
+			System.out.print(" printing for " + duration + " second(s)\n");
 			Thread.sleep(duration * 1000L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
