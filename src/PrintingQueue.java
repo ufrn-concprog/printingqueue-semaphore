@@ -24,6 +24,7 @@ public class PrintingQueue {
 	/** Perform the printing job itself */
 	public void printJob() {
 		try {
+			System.out.println("Printing job sent: " + Thread.currentThread().getName());
 			semaphore.acquire();
 			
 			// Thread is suspended by a random time interval to
