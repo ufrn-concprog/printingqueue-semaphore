@@ -2,7 +2,7 @@
 
 ![Java](https://img.shields.io/badge/Java-8%2B-orange?logo=openjdk)
 
-This Java program demonstrates how a semaphore controls access to a shared printer. It creates print job threads, each representing a job and requesting access to the printer. A job holds the semaphore while printing is simulated for one second, then releases it so another waiting job can proceed. The printing queue is controlled by an instance of the [`Semaphore`](https://docs.oracle.com/en/java/javase/26/docs/api/java.base/java/util/concurrent/Semaphore.html) class available in the [`java.util.concurrent` package](https://docs.oracle.com/en/java/javase/26/docs/api/java.base/java/util/concurrent/package-summary.html).
+This Java program demonstrates how a semaphore controls access to a shared printer. It creates print job threads, each representing a job and requesting access to the printer. A job holds the semaphore while printing is simulated for one second, then releases it so another waiting job can proceed. The printing queue is controlled by an instance of the [`Semaphore` class](https://docs.oracle.com/en/java/javase/26/docs/api/java.base/java/util/concurrent/Semaphore.html) available in the [`java.util.concurrent` package](https://docs.oracle.com/en/java/javase/26/docs/api/java.base/java/util/concurrent/package-summary.html).
 
 The semaphore starts with one permit, allowing one job into the printing section at a time, and other threads wait until the current job releases the permit. The semaphore does not guarantee which waiting thread goes next, so the print order can vary between runs.
 
